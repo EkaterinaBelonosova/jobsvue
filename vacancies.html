@@ -7,21 +7,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">      
     </head>
 <body>	
-    <!--<div class="container" id="app">
-        <h3 class="text-center">Cryptocurrency Pricing</h3>
-        <div class="columns medium-4" v-for="(result, index) in results">
-            <div class="card">
-                <div class="card-section">
-                    <p> {{ index }} </p>
-                    </div>
-                    <div class="card-divider">
-                    <p>{{ result.id }}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    -->
+   
 <div class="container" id="jobs">
     <h3 class="text-center">Cryptocurrency Pricing</h3>
     <section v-if="errored">
@@ -47,20 +33,14 @@
             <div class="col-sm-9">
                 <h5 v-if="emptyData">Ничего не найдено(</h5>
                 <div class="card-group">
-                    <div class="col-sm-4" v-for="vacancy in results">
+                    <div class="col-sm-4" v-for="res in results">
                         <div class="card" style="width: 18rem;height: 16rem;">
-                            <div class="card-body" >
-                                <h5 class="card-title">{{vacancy.title}}</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">{{vacancy.location}}</h6>
-                                <h6 class="card-subtitle mb-2 text-muted">{{vacancy.type}}</h6>
-                                <p class="card-text">{{vacancy.company}}</p> 
-                                <p class="card-text"><small class="text-muted">{{vacancy.created_at | setDate}}</small></p>
-                                <div class="col-sm-2">
-                                    <button v-on:click="$emit('enlarge-text', vacancy)" @click="transferto">
-                                            Увеличить размер текста
-                                          </button>
-                                          <a v-link="{ name: 'new', params: { name: vacancy.title }}">Show new component</a>
-                                </div>                     
+                            <div class="card-body">
+                                <h5 class="card-title">{{res.title}}</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">{{res.location}}</h6>
+                                <h6 class="card-subtitle mb-2 text-muted">{{res.type}}</h6>
+                                <p class="card-text">{{res.company}}</p> 
+                                <p class="card-text"><small class="text-muted">{{res.created_at | setDate}}</small></p>                     
                             </div>
                         </div>
                     </div> 
@@ -71,12 +51,6 @@
  
 </div>
 
-<template id="view" :name ="vacancy.title">
-        <form>
-        <label>Name: </label><input v-model="name">
-        <input type="submit" value="Submit">
-        </form>
-</template>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
